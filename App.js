@@ -6,14 +6,17 @@
 
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 import PhoneContactListApp from './app/reducers/PhoneContactList'
+import {logger, crashReporter} from './app/utilities/middleswares/middleware'
 
 
 import PhoneContactListContainer from './app/containers/PhoneContactListContainer';
 
-let store = createStore(PhoneContactListApp)
+// let store = createStore(PhoneContactListApp)
+let createStoreWithMiddleware = applyMiddleware(logger, crashReporter)(createStore);
+let store = createStoreWithMiddleware(PhoneContactListApp);
 
 export default class App extends Component<{}> {
     render() {

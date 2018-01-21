@@ -5,6 +5,7 @@ import Avatar from './Avatar';
 
 const PhoneContact = NativeModules.PhoneContact;
 
+/*
 const data = [{
     familyName: 'pan',
     fullName: 'yini',
@@ -22,6 +23,7 @@ const data = [{
     fullName: 'yini',
     phoneNumber: '132433',
 }];
+*/
 
 class PhoneContactList extends Component {
     constructor(props) {
